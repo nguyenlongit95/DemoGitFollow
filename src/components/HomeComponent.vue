@@ -1,5 +1,7 @@
 <template>
+    
     <HeaderComponent/>
+
     <!-- Start content -->
     <section class="pt-24 pb-10 bg-black">
         <div class="container flex flex-col gap-8 mx-auto">
