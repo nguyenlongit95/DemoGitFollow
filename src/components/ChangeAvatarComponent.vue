@@ -14,7 +14,7 @@
                 <p v-else>So {{ a }} khong phai so nguyen to</p>
                 <!-- Hien thi danh sach cac snt tu 1 toi a -->
                 <p>
-                    Cac so nguyen to tu 1 toi {{ a }} la:
+                    Cac so nguyen to tu 1 toi: {{ a }} la:
                     <!-- Hien thi danh sach dang mang hoac obj  -->
                     <span v-for="_snt in listSNT">{{ _snt }}, </span>
                 </p>
