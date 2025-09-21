@@ -26,6 +26,7 @@
                         <img class="w-8" src="../assets/W-01/facebook.png" alt="facebook icon">
                         <p class="text-xl">Tiếp tục với Facebook</p>
                     </button>
+                    <h1>TEST DEMO GIT_FOLLOW</h1>
                 </div>
             </div>
         </div>
