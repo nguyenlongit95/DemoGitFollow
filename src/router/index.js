@@ -45,6 +45,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: MenuComponent
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: MenuComponent
   }, 
   {
     path: '/category',
@@ -59,8 +64,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+    history: createWebHistory(),
+    routes,
 });
 
 export default router;
