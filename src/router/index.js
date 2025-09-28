@@ -6,8 +6,8 @@ import DetailComponent from '@/components/DetailComponent.vue';
 
 const routes = [
   {
-    path: '/login',
-    name: 'Login',
+    path: '/auth',
+    name: 'Auth',
     component: LoginComponent
   },
   {
@@ -35,6 +35,10 @@ const routes = [
     name: 'ChangePassword',
     component: DetailComponent
   },
+    path: '/register',
+    name: 'Register',
+    component: MenuComponent
+  }, 
   {
     path: '/category',
     name: 'Category',
