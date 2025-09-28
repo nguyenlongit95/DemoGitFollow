@@ -29,7 +29,14 @@ const routes = [
     path: '/detail',
     name: 'Detail',
     component: DetailComponent
+  },
+
+  {
+    path: '/register1',
+    name: 'Register',
+    component: MenuComponent
   }
+
 ];
 
 const router = createRouter({
