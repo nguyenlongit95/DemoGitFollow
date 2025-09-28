@@ -29,7 +29,12 @@ const routes = [
     path: '/detail',
     name: 'Detail',
     component: DetailComponent
-  } hehehihi
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: DetailComponent
+  }
 ];
 
 const router = createRouter({
