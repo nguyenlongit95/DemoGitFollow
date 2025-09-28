@@ -45,6 +45,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: MenuComponent
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: MenuComponent
   }, 
   {
     path: '/category',
