@@ -31,6 +31,11 @@ const routes = [
     component: DetailComponent
   },
   {
+    path: '/change-password',
+    name: 'ChangePassword',
+    component: DetailComponent
+  },
+  {
     path: '/category',
     name: 'Category',
     component: DetailComponent
