@@ -1,40 +1,40 @@
 // src/router/index.js
-import { createRouter, createWebHistory } from 'vue-router';
-import LoginComponent from '@/components/LoginComponent.vue';
-import HomeComponent from '@/components/HomeComponent.vue';
-import DetailComponent from '@/components/DetailComponent.vue';
+import { createRouter, createWebHistory } from "vue-router";
+import LoginComponent from "@/components/LoginComponent.vue";
+import HomeComponent from "@/components/HomeComponent.vue";
+import DetailComponent from "@/components/DetailComponent.vue";
 
 const routes = [
-  {
-    path: '/login',
-    name: 'Login',
-    component: LoginComponent
-  },
-  {
-    path: '/index',
-    name: 'Index',
-    component: HomeComponent
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: HomeComponent
-  },
-  {
-    path: '/google-youtube-live-callback',
-    name: 'Home',
-    component: HomeComponent
-  },
-  {
-    path: '/detail',
-    name: 'Detail',
-    component: DetailComponent
-  }
+    {
+        path: "/login",
+        name: "Login",
+        component: LoginComponent,
+    },
+    {
+        path: "/index",
+        name: "Index",
+        component: HomeComponent,
+    },
+    {
+        path: "/home",
+        name: "Home",
+        component: HomeComponent,
+    },
+    {
+        path: "/google-youtube-live-callback",
+        name: "Home",
+        component: HomeComponent,
+    },
+    {
+        path: "/detail",
+        name: "Detail2",
+        component: DetailComponent,
+    },
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+    history: createWebHistory(),
+    routes,
 });
 
 export default router;
