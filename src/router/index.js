@@ -4,11 +4,11 @@ import LoginComponent from '@/components/LoginComponent.vue';
 import HomeComponent from '@/components/HomeComponent.vue';
 import DetailComponent from '@/components/DetailComponent.vue';
 import ChangeAvatarComponent from '@/components/ChangeAvatarComponent.vue';
-
+import ReportComponent from '@/components/ReportComponent.vue';
 const routes = [
   {
-    path: '/login',
-    name: 'Login',
+    path: '/auth',
+    name: 'Auth',
     component: LoginComponent
   },
   {
@@ -35,6 +35,26 @@ const routes = [
     path: '/change',
     name: 'Change',
     component: DetailComponent
+  },
+  {
+    path: '/change-password',
+    name: 'ChangePassword',
+    component: DetailComponent
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: MenuComponent
+  }, 
+  {
+    path: '/category',
+    name: 'Category',
+    component: DetailComponent
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    component: ReportComponent
   }
 ];
 

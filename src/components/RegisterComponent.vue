@@ -1,0 +1,34 @@
+<template>
+    <div class="flex items-center justify-center h-screen bg-black">
+        <div class="bg-white h-[65%] w-[50%] rounded-2xl flex">
+            <div class="m-2 w-[600px] rounded-xl overflow-hidden">
+                <div class="w-full h-full overflow-hidden rounded-xl">
+                    <img class="object-cover w-full h-full transition-all duration-300 cursor-pointer hover:scale-105 hover:blur-sm"
+                        src="../assets/W-01/login3.jpg" alt="" />
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center w-full gap-10">
+                <h1 class="text-4xl font-bold text-center">Đăng nhập vào Uni Stream</h1>
+                <div class="flex flex-col gap-3">
+                    <button
+                        @click="loginWithGoogle"
+                        class="flex gap-4 border border-gray-300 w-[450px] p-5 rounded-2xl hover:border-gray-800 duration-200 transition-all">
+                        <img class="w-8" src="../assets/W-01/google.png" alt="google icon">
+                        <p class="text-xl">Tiếp tục với Google</p>
+                    </button>
+                    <div class="flex items-center justify-center gap-4">
+                        <hr class="w-48 text-gray-800">
+                        <span class="text-gray-500">hoặc</span>
+                        <hr class="w-48 text-gray-800">
+                    </div>
+                    <button
+                        class="flex gap-4 border border-gray-300 w-[450px] p-5 rounded-2xl hover:border-gray-800 duration-200 transition-all">
+                        <img class="w-8" src="../assets/W-01/facebook.png" alt="facebook icon">
+                        <p class="text-xl">Tiếp tục với Facebook</p>
+                    </button>
+                    <h1>FEATURE 008</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
