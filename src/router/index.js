@@ -31,6 +31,11 @@ const routes = [
     component: DetailComponent
   },
   {
+    path: '/register1',
+    name: 'Register',
+    component: MenuComponent
+  }, 
+  {
     path: '/category',
     name: 'Category',
     component: DetailComponent
