@@ -6,8 +6,8 @@ import DetailComponent from '@/components/DetailComponent.vue';
 
 const routes = [
   {
-    path: '/login',
-    name: 'Login',
+    path: '/auth',
+    name: 'Auth',
     component: LoginComponent
   },
   {
@@ -29,7 +29,7 @@ const routes = [
     path: '/detail',
     name: 'Detail',
     component: DetailComponent
-  }
+  } hehehihi
 ];
 
 const router = createRouter({
