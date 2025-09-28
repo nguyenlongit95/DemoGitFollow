@@ -1,41 +1,77 @@
 <template>
-    <div class="flex items-center justify-center h-screen bg-black">
-        <div class="bg-white h-[65%] w-[50%] rounded-2xl flex">
-            <div class="m-2 w-[600px] rounded-xl overflow-hidden">
-                <div class="w-full h-full overflow-hidden rounded-xl">
-                    <img class="object-cover w-full h-full transition-all duration-300 cursor-pointer hover:scale-105 hover:blur-sm"
-                        src="../assets/W-01/login3.jpg" alt="" />
-                </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+                <h1>{{ msg }}</h1>
+                <button v-on:click="plusData()">{{ count }}</button>
+                <!-- Moi lan clik se binh phuong gia tri count -->
+                <h2>count^2 = {{ count2 }}</h2>
+                <!-- Nhap vao 1 so va hien thi so do co phai snt hay khong -->
+                <!-- De truyen du lieu vao the input su dung v-model -->
+                <input type="number" v-model="a">
+                <!-- Dieu kien hien thi du lieu -->
+                <p v-if="checkSNT">So {{ a }} la so nguyen to</p>
+                <p v-else>So {{ a }} khong phai so nguyen to</p>
+                <!-- Hien thi danh sach cac snt tu 1 toi a -->
+                <p>
+                    Cac so nguyen to tu 1 toi: {{ a }} la:
+                    <!-- Hien thi danh sach dang mang hoac obj  -->
+                    <span v-for="_snt in listSNT">{{ _snt }}, </span>
+                </p>
             </div>
-            <div class="flex flex-col items-center justify-center w-full gap-10">
-                <h1 class="text-4xl font-bold text-center">Đăng nhập vào Uni Stream</h1>
-                <div class="flex flex-col gap-3">
-                    <button
-                        @click="loginWithGoogle"
-                        class="flex gap-4 border border-gray-300 w-[450px] p-5 rounded-2xl hover:border-gray-800 duration-200 transition-all">
-                        <img class="w-8" src="../assets/W-01/google.png" alt="google icon">
-                        <p class="text-xl">Tiếp tục với Google</p>
-                    </button>
-                    <div class="flex items-center justify-center gap-4">
-                        <hr class="w-48 text-gray-800">
-                        <span class="text-gray-500">hoặc</span>
-                        <hr class="w-48 text-gray-800">
-                    </div>
-                    <button
-                        class="flex gap-4 border border-gray-300 w-[450px] p-5 rounded-2xl hover:border-gray-800 duration-200 transition-all">
-                        <img class="w-8" src="../assets/W-01/facebook.png" alt="facebook icon">
-                        <p class="text-xl">Tiếp tục với Facebook</p>
-                    </button>
-                    <h1>TEST DEMO GIT_FOLLOW</h1>
+            <div class="col-md-12 d-flex">
+                <!-- Style biding -->
+                <div class="select-color-section" v-for="color in arrColor" :style="{background: color}" v-on:click="fillColor(color)"></div>
+            </div>
+            <div class="col-md-12" id="preview-color" :style="{background: this.color}"></div>
+        </div>
+        <div class="col-md-12">
+            <button v-on:click="clickMe()">Click me and active</button>
+            <!-- Class biding -->
+            <p :class="{'text-primary': this.clickStatus}">Đề thi vẽ còn hay hơn đề văn</p>
+            <button v-on:click="changeActive()">Click me!</button>
+            <button :disabled="clickStatus">Click status</button>
+        </div>
+        <div class="col-md-12" id="the_matrix_one">
+            <div class="nm" style="display: flex;">
+                <input type="number" v-model="this.n">
+                X
+                <input type="number" v-model="this.m">
+            </div> 
+            <hr>
+            <div class="matrix" style="display: flex;">
+                <div id="matrix1">
+                    <span v-for="i in n" :key="i">
+                        {{ i }}
+                        <input v-for="j in m" v-model="this.matrix1[i-1][j-1]" type="number" value="0"> <br>
+                    </span>
                 </div>
+                <div class="clear-fix" style="width: 50px;"></div>
+                <div id="matrix2">
+                    <span v-for="i in n" :key="i">
+                        <input v-for="j in m" v-model="this.matrix2[i-1][j-1]" type="number" value="0"> <br>
+                    </span>
+                </div>
+                <div class="clear-fix" style="width: 50px;"></div>
+                <div id="method">
+                    <button :disabled="n <= 0 || m <= 0" v-on:click="add()">+</button>
+                    <button :disabled="n <= 0 || m <= 0" v-on:click="multiple()">*</button>
+                </div>
+                <div class="clear-fix" style="width: 50px;"></div>
+                <div id="matrix3">
+                    <span v-for="i in n" :key="i">
+                        <input v-for="j in m" v-model="this.matrix3[i-1][j-1]" type="number" value="0"><br>
+                    </span>
+                </div>
+                <p v-if="n <= 0 || m <= 0">N và M phải lớn hơn 0</p>
             </div>
         </div>
     </div>
 </template>
+
 <script>
     // import Vue from 'vue'
     import axios from 'axios'
-    import { googleTokenLogin } from "vue3-google-login";
     // import component1 from 'component1'
     // import component2 from 'component2'
 
@@ -84,10 +120,9 @@
              **********************************************************************************************************/
             // Code JS chay o trong nay hoac dung cac thu vien khac nhu jQuery o day.
             // jQuery code
-            window.handleCredentialResponse = (response) => {
-                console.log("Google JWT Token: ", response.credential);
-                this.decodeToken(response.credential);
-            };
+            $(document).ready(function () {
+                //alert("3.14");
+            });
         },
         watch: {
             /***********************************************************************************************************
@@ -251,31 +286,36 @@
                     console.log(err);
                 }
             },
-
-            /**
-             * Method decode from Google and call API create a session
-             * 
-             * @param token 
-             */
-            async loginWithGoogle() {
-                const googleUser = await googleTokenLogin();
-                let doLogin = await axios.post('http://localhost/UniStreamAPI/public/api/login', {
-                    /************ Attach param for request here ***************/
-                    'access_token': googleUser.access_token
-                }).then(function (response) {
-                    if (response.data.code == 200) {
-                        // Save to session storage
-                        sessionStorage.setItem("access_token", response.data.data.accessToken);
-                        sessionStorage.setItem("user_info", JSON.stringify(response.data.data.user_info));
-                        window.location.replace('/index');
-                        return true;
-                    }
-                    alert("401 UnAuthentication");
-                    return false;
-                }).catch(function (errors) {
-                    console.log(errors);
-                });
-            }
         },
     }
 </script>
+
+<style scoped>
+/**
+* Custom local style css
+*/
+p {
+    color: red;
+}
+.select-color-section {
+    width: 100px;
+    height: 30px;
+    border: 1px solid white;
+    margin-right: 5px;
+}
+.d-flex {
+    display: flex;
+}
+#preview-color {
+    height: 150px;
+    width: 520px;
+    border: 1px solid white;
+    margin-top: 15px;
+}
+.text-primary {
+    color: blue !important;
+}
+#the_matrix_one input {
+    width: 40px;
+}
+</style>

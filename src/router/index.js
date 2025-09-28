@@ -29,6 +29,11 @@ const routes = [
     path: '/detail',
     name: 'Detail',
     component: DetailComponent
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: DetailComponent
   }
 ];
 
