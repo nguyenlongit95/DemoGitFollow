@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LoginComponent from '@/components/LoginComponent.vue';
 import HomeComponent from '@/components/HomeComponent.vue';
 import DetailComponent from '@/components/DetailComponent.vue';
-
+import ReportComponent from '@/components/ReportComponent.vue';
 const routes = [
   {
     path: '/login',
@@ -34,6 +34,11 @@ const routes = [
     path: '/category',
     name: 'Category',
     component: DetailComponent
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    component: ReportComponent
   }
 ];
 
