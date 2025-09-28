@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LoginComponent from '@/components/LoginComponent.vue';
 import HomeComponent from '@/components/HomeComponent.vue';
 import DetailComponent from '@/components/DetailComponent.vue';
+import ChangeAvatarComponent from '@/components/ChangeAvatarComponent.vue';
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
   {
     path: '/detail',
     name: 'Detail',
+    component: DetailComponent
+  },
+  {
+    path: '/change',
+    name: 'Change',
     component: DetailComponent
   }
 ];
