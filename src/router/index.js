@@ -6,8 +6,8 @@ import DetailComponent from '@/components/DetailComponent.vue';
 
 const routes = [
   {
-    path: '/login',
-    name: 'Login',
+    path: '/auth',
+    name: 'Auth',
     component: LoginComponent
   },
   {
